@@ -5,27 +5,40 @@
     @media screen and (width < 900px) {
       display: none;
     }
-    a {
-      position: relative;
-      color: var(--gray33);
-      font-size: 1.6rem;
-      font-weight: 700;
-      &::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: -1;
-        transform: scaleX(0);
-        border-bottom: 1rem solid var(--yellow);
-        transition: 1s var(--inout-expo);
-      }
-      &:hover {
+    // 1depth
+    > li {
+      > a {
+        position: relative;
+        color: var(--gray33);
+        font-size: 1.6rem;
+        font-weight: 700;
         &::after {
-          transform: scaleX(1);
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: -1;
+          transform: scaleX(0);
+          border-bottom: 1rem solid var(--yellow);
+          transition: 1s var(--inout-expo);
+        }
+        &:hover {
+          &::after {
+            transform: scaleX(1);
+          }
         }
       }
+    }
+    // 2depth
+    .depth2 {
+      position: absolute;
+      top: 9rem;
+      left: 50%;
+      z-index: 100;
+      transform: translateX(-50%);
+      padding: 3rem 0 0 20.8rem;
+      width: 122.4rem;
     }
   }
 }

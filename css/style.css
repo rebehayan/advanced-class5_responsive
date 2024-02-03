@@ -589,13 +589,13 @@
       display: none;
     }
   }
-  .gnb a {
+  .gnb > li > a {
     position: relative;
     color: var(--gray33);
     font-size: 1.6rem;
     font-weight: 700;
   }
-  .gnb a::after {
+  .gnb > li > a::after {
     content: "";
     position: absolute;
     left: 0;
@@ -606,8 +606,17 @@
     border-bottom: 1rem solid var(--yellow);
     transition: 1s var(--inout-expo);
   }
-  .gnb a:hover::after {
+  .gnb > li > a:hover::after {
     transform: scaleX(1);
+  }
+  .gnb .depth2 {
+    position: absolute;
+    top: 9rem;
+    left: 50%;
+    z-index: 100;
+    transform: translateX(-50%);
+    padding: 3rem 0 0 20.8rem;
+    width: 122.4rem;
   }
 }
 @layer Layout.Header {
