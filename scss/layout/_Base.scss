@@ -14,9 +14,15 @@
     }
   }
   .container {
+    padding: 10rem 0 20rem;
     @include mobile {
       padding: 10rem 3rem 20rem;
       box-sizing: border-box;
+    }
+  }
+  body {
+    &.--hidden {
+      overflow: hidden;
     }
   }
 }

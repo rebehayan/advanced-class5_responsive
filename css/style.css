@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@layer Reset, Layout, Component, Visual, Form, Heading, Align, Space;
+@layer Reset, Layout, Component, Visual, Form, Heading, Pages, Align, Space;
 :root {
   --orange: #f69740;
   --skyblue: #38c3ef;
@@ -303,6 +303,9 @@
       background: url(../images/ico_sitemap_white.svg) no-repeat center/2.8rem auto;
     }
   }
+  .btn-sitemap.--active::before {
+    background-image: url(../images/ico_close.svg);
+  }
   .btn-search {
     display: none;
     width: 9rem;
@@ -312,6 +315,10 @@
   @media screen and (width < 900px) {
     .btn-search {
       display: block;
+    }
+    .btn-search.--active {
+      opacity: 0;
+      visibility: hidden;
     }
   }
   .btn {
@@ -694,6 +701,11 @@
       padding: 0 10%;
       height: calc(100vh - 9.2rem);
       background-color: var(--yellow);
+      transform: translateX(-100%);
+      transition: transform 0.5s;
+    }
+    .gnb.--active {
+      transform: translateX(0);
     }
   }
   .gnb > li {
@@ -994,11 +1006,17 @@
       display: block;
     }
   }
+  .container {
+    padding: 10rem 0 20rem;
+  }
   @media screen and (width < 900px) {
     .container {
       padding: 10rem 3rem 20rem;
       box-sizing: border-box;
     }
+  }
+  body.--hidden {
+    overflow: hidden;
   }
 }
 @layer Align {
@@ -1051,4 +1069,19 @@
     vertical-align: bottom;
   }
 }
-@layer Space {}/*# sourceMappingURL=style.css.map */
+@layer Space {
+  .mt30 {
+    margin-top: 3rem;
+  }
+  .mt60 {
+    margin-top: 6rem;
+  }
+}
+@layer Pages.sub2 {
+  @media screen and (width < 900px) {
+    .img-history {
+      width: calc(100% + 6rem);
+      margin-left: -3rem;
+    }
+  }
+}/*# sourceMappingURL=style.css.map */

@@ -1,4 +1,4 @@
-@layer Reset, Layout, Component, Visual, Form, Heading, Align, Space;
+@layer Reset, Layout, Component, Visual, Form, Heading, Pages, Align, Space;
 
 @import "./abstracts/mixin"; //믹스인
 @import "./base/Variable"; // 변수
@@ -13,3 +13,4 @@
 @import "./layout/Base"; // 기본정의
 @import "./layout/Align"; // 정렬
 @import "./layout/Space"; // 여백
+@import "./pages/sub2"; // 소년소녀부
