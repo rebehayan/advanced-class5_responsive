@@ -589,7 +589,16 @@
       display: none;
     }
   }
+  .gnb > li:hover > a::after {
+    transform: scaleX(1);
+  }
+  .gnb > li:hover .depth2 {
+    z-index: 100;
+    animation: fadeIn 0.8s 0.2s 1 both var(--inout-quint);
+  }
   .gnb > li > a {
+    display: block;
+    line-height: 9rem;
     position: relative;
     color: var(--gray33);
     font-size: 1.6rem;
@@ -600,26 +609,72 @@
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 3.2rem;
     z-index: -1;
     transform: scaleX(0);
     border-bottom: 1rem solid var(--yellow);
     transition: 1s var(--inout-expo);
   }
-  .gnb > li > a:hover::after {
-    transform: scaleX(1);
-  }
   .gnb .depth2 {
     position: absolute;
     top: 9rem;
     left: 50%;
-    z-index: 100;
+    z-index: -1;
     transform: translateX(-50%);
     padding: 3rem 0 0 20.8rem;
     width: 122.4rem;
+    box-sizing: border-box;
+    opacity: 0;
+  }
+  .gnb .depth2 > ul {
+    display: flex;
+    gap: 6rem;
+  }
+  .gnb .depth2 > ul > li:hover > a {
+    color: var(--gray33);
+  }
+  .gnb .depth2 > ul > li > a {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--gray66);
+    line-height: 2.027rem;
+  }
+  .gnb .depth2 > ul > li > ul {
+    padding: 1.6rem 0 0;
+  }
+  .gnb .depth2 > ul > li > ul > li > a {
+    font-size: 1.4rem;
+    color: var(--gray66);
+    line-height: 3rem;
+  }
+}
+.bg-gnb {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 9.1rem;
+  z-index: 99;
+  height: 0;
+  background-color: var(--white);
+  transition: height 0.5s var(--inout-quint);
+}
+
+.gnb:has(> li:hover) + .bg-gnb {
+  height: 15.7rem;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 @layer Layout.Header {
+  .header {
+    border-bottom: 0.1rem solid var(--yellow);
+  }
   @media screen and (width < 900px) {
     .header {
       position: relative;
