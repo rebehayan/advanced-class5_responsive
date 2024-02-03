@@ -3,12 +3,23 @@
     display: flex;
     // gap: 4rem;
     @media screen and (width < 900px) {
-      display: none;
+      display: block;
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 9.2rem;
+      z-index: 1000;
+      padding: 0 10%;
+      height: calc(100vh - 9.2rem);
+      background-color: var(--yellow);
     }
 
     // 1depth
     > li {
       padding: 0 2rem;
+      @include mobile {
+        border-bottom: 0.1rem solid rgba(255, 255, 255, 0.5);
+      }
       &:hover {
         > a {
           &::after {
@@ -19,15 +30,34 @@
           // opacity: 1;
           z-index: 100;
           animation: fadeIn 0.8s 0.2s 1 both var(--inout-quint);
+          @include mobile {
+            animation: none;
+            border-top: 0.1rem solid rgba(255, 255, 255, 0.5);
+            padding: 3.4rem 0;
+            height: 74.9rem;
+          }
+        }
+      }
+      &:nth-child(2):hover {
+        .depth2 {
+          @include mobile {
+            height: 30.8rem;
+          }
         }
       }
       > a {
         display: block;
         line-height: 9rem;
-        position: relative;
+        position: relativ e;
         color: var(--gray33);
         font-size: 1.6rem;
         font-weight: 700;
+        @include mobile {
+          padding: 3.4rem 0;
+          color: var(--white);
+          font-size: 4.6rem;
+          line-height: 1;
+        }
         &::after {
           content: "";
           position: absolute;
@@ -38,6 +68,9 @@
           transform: scaleX(0);
           border-bottom: 1rem solid var(--yellow);
           transition: 1s var(--inout-expo);
+          @include mobile {
+            display: none;
+          }
         }
       }
     }
@@ -53,13 +86,42 @@
       box-sizing: border-box;
       opacity: 0;
       // transition: opacity 0.5s 0.2s var(--inout-quint);
+      @include mobile {
+        position: static;
+        transform: translate(0, 0);
+        padding: 0;
+        width: 100%;
+        opacity: 1;
+        height: 0;
+        overflow: hidden;
+        padding: 0;
+        transition: height 1s var(--inout-quint), padding 1s var(--inout-quint);
+      }
       > ul {
         display: flex;
         gap: 6rem;
+        @include mobile {
+          display: block;
+        }
         > li {
+          &:first-child {
+            > a {
+              padding-top: 0;
+            }
+          }
+          &:last-child {
+            > a {
+              &:last-child {
+                padding-bottom: 0;
+              }
+            }
+          }
           &:hover {
             > a {
               color: var(--gray33);
+              @include mobile {
+                color: var(--white);
+              }
             }
           }
           > a {
@@ -67,6 +129,13 @@
             font-weight: bold;
             color: var(--gray66);
             line-height: 2.027rem;
+            @include mobile {
+              display: block;
+              font-size: 3.4rem;
+              line-height: 1;
+              color: var(--white);
+              padding: 1.7rem 0;
+            }
           }
           // 3depth
           > ul {
@@ -76,6 +145,13 @@
                 font-size: 1.4rem;
                 color: var(--gray66);
                 line-height: 3rem;
+                @include mobile {
+                  display: block;
+                  padding: 1.7rem 0;
+                  color: var(--yellow2);
+                  font-size: 3rem;
+                  line-height: 1;
+                }
               }
             }
           }
@@ -93,6 +169,9 @@
   height: 0;
   background-color: var(--white);
   transition: height 0.5s var(--inout-quint);
+  @include mobile {
+    display: none;
+  }
 }
 
 .gnb:has(> li:hover .depth2) + .bg-gnb {

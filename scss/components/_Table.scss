@@ -98,8 +98,44 @@
   }
 
   .table-wrap {
+    position: relative;
     @include mobile {
-      overflow-x: auto;
+      overflow-x: hidden;
+      &.--active {
+        overflow-x: auto;
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
+      &::before {
+        content: "클릭후 \a드래그하세요";
+        white-space: pre;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 12rem;
+        height: 12rem;
+        border-radius: 100%;
+        transform: translate(-50%, -50%);
+        background-color: var(--white);
+        z-index: 2;
+        font-size: 1.6rem;
+        text-align: center;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(1px);
+      }
       > table {
         width: 240rem;
       }
