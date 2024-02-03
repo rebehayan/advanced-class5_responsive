@@ -13,4 +13,10 @@
       display: block;
     }
   }
+  .container {
+    @include mobile {
+      padding: 10rem 3rem 20rem;
+      box-sizing: border-box;
+    }
+  }
 }

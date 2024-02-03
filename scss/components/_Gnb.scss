@@ -1,13 +1,14 @@
 @layer Header.Gnb {
   .gnb {
     display: flex;
-    gap: 4rem;
+    // gap: 4rem;
     @media screen and (width < 900px) {
       display: none;
     }
 
     // 1depth
     > li {
+      padding: 0 2rem;
       &:hover {
         > a {
           &::after {
@@ -94,7 +95,7 @@
   transition: height 0.5s var(--inout-quint);
 }
 
-.gnb:has(> li:hover) + .bg-gnb {
+.gnb:has(> li:hover .depth2) + .bg-gnb {
   height: 15.7rem;
 }
 

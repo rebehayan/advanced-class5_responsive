@@ -40,4 +40,69 @@
       }
     }
   }
+
+  .table-type2 {
+    @include mobile {
+      colgroup {
+        display: none;
+      }
+    }
+    th,
+    td {
+      padding: 1.9rem 3rem;
+      font-size: 1.6rem;
+      border: 0.1rem solid var(--graye1);
+      @include mobile {
+        display: block;
+        // margin-top: -0.1rem;
+      }
+    }
+    th {
+      color: var(--gray33);
+      background-color: var(--grayf6);
+    }
+    td {
+      color: var(--gray66);
+      @include mobile {
+        border-top: none;
+        border-bottom: none;
+      }
+    }
+    tr:last-child {
+      td {
+        border-bottom: 0.1rem solid var(--graye1);
+      }
+    }
+  }
+
+  .table-type3 {
+    th {
+      padding: 2rem;
+      background-color: var(--gray66);
+      font-size: 1.4rem;
+      color: var(--white);
+      + th {
+        border-left: 0.1rem solid var(--graye1);
+      }
+    }
+    td {
+      padding: 2rem;
+      border-bottom: 0.1rem solid var(--graye1);
+      font-size: 1.6rem;
+      color: var(--gray66);
+      text-align: center;
+      + td {
+        border-left: 0.1rem solid var(--graye1);
+      }
+    }
+  }
+
+  .table-wrap {
+    @include mobile {
+      overflow-x: auto;
+      > table {
+        width: 240rem;
+      }
+    }
+  }
 }

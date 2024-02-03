@@ -1,4 +1,4 @@
-@layer Reset, Layout,Component, Button, Visual, Form, Heading, Align, Space;
+@layer Reset, Layout, Component, Visual, Form, Heading, Align, Space;
 :root {
   --orange: #f69740;
   --skyblue: #38c3ef;
@@ -14,6 +14,7 @@
   --graye0: #e0e0e0;
   --graye1: #e1e1e1;
   --graye2: #e2e2e2;
+  --grayf6: #f6f6f6;
   --grayfa: #fafafa;
   --white: #ffffff;
   --in-sine: cubic-bezier(0.47, 0, 0.745, 0.715);
@@ -245,7 +246,7 @@
     }
   }
 }
-@layer Button {
+@layer Component.Button {
   .btn-login {
     display: inline-flex;
     align-items: center;
@@ -565,6 +566,66 @@
   .table-type1 tr + tr {
     border-top: 0.1rem solid var(--graye1);
   }
+  @media screen and (width < 900px) {
+    .table-type2 colgroup {
+      display: none;
+    }
+  }
+  .table-type2 th,
+  .table-type2 td {
+    padding: 1.9rem 3rem;
+    font-size: 1.6rem;
+    border: 0.1rem solid var(--graye1);
+  }
+  @media screen and (width < 900px) {
+    .table-type2 th,
+    .table-type2 td {
+      display: block;
+    }
+  }
+  .table-type2 th {
+    color: var(--gray33);
+    background-color: var(--grayf6);
+  }
+  .table-type2 td {
+    color: var(--gray66);
+  }
+  @media screen and (width < 900px) {
+    .table-type2 td {
+      border-top: none;
+      border-bottom: none;
+    }
+  }
+  .table-type2 tr:last-child td {
+    border-bottom: 0.1rem solid var(--graye1);
+  }
+  .table-type3 th {
+    padding: 2rem;
+    background-color: var(--gray66);
+    font-size: 1.4rem;
+    color: var(--white);
+  }
+  .table-type3 th + th {
+    border-left: 0.1rem solid var(--graye1);
+  }
+  .table-type3 td {
+    padding: 2rem;
+    border-bottom: 0.1rem solid var(--graye1);
+    font-size: 1.6rem;
+    color: var(--gray66);
+    text-align: center;
+  }
+  .table-type3 td + td {
+    border-left: 0.1rem solid var(--graye1);
+  }
+  @media screen and (width < 900px) {
+    .table-wrap {
+      overflow-x: auto;
+    }
+    .table-wrap > table {
+      width: 240rem;
+    }
+  }
 }
 @layer Header.Logo {
   @media screen and (width < 900px) {
@@ -582,12 +643,14 @@
 @layer Header.Gnb {
   .gnb {
     display: flex;
-    gap: 4rem;
   }
   @media screen and (width < 900px) {
     .gnb {
       display: none;
     }
+  }
+  .gnb > li {
+    padding: 0 2rem;
   }
   .gnb > li:hover > a::after {
     transform: scaleX(1);
@@ -659,7 +722,7 @@
   transition: height 0.5s var(--inout-quint);
 }
 
-.gnb:has(> li:hover) + .bg-gnb {
+.gnb:has(> li:hover .depth2) + .bg-gnb {
   height: 15.7rem;
 }
 
@@ -799,6 +862,12 @@
   @media screen and (width < 900px) {
     .only-mobile {
       display: block;
+    }
+  }
+  @media screen and (width < 900px) {
+    .container {
+      padding: 10rem 3rem 20rem;
+      box-sizing: border-box;
     }
   }
 }
